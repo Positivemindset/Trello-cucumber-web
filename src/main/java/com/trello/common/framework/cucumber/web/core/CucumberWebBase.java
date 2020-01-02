@@ -591,8 +591,9 @@ public class CucumberWebBase {
 			targetChromedriver = new File(EnvParameters.TEST_ROOT_DIR + File.separator + "drivers" + File.separator
 					+ "chrome" + File.separator + "mac" + File.separator + "chromedriver");
 		} else if (OSUtils.getOSname() == OSType.linux) {
-			targetChromedriver = new File(EnvParameters.TEST_ROOT_DIR + File.separator + "drivers" + File.separator
-					+ "chrome" + File.separator + "linux" + File.separator + "chromedriver");
+		//	targetChromedriver = new File(EnvParameters.TEST_ROOT_DIR + File.separator + "drivers" + File.separator
+			//		+ "chrome" + File.separator + "linux" + File.separator + "chromedriver");
+			targetChromedriver = new File ("/usr/bin/chromedriver");
 		}
 
 		if (targetChromedriver.exists()) {
