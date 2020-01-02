@@ -651,8 +651,9 @@ public class CucumberWebBase {
 			targetPhantomjsdriver = new File(EnvParameters.TEST_ROOT_DIR + File.separator + "drivers" + File.separator
 					+ "phantomjs" + File.separator + "mac" + File.separator + "phantomjs");
 		} else if (OSUtils.getOSname() == OSType.linux) {
-			targetPhantomjsdriver = new File(EnvParameters.TEST_ROOT_DIR + File.separator + "drivers" + File.separator
-					+ "phantomjs" + File.separator + "linux" + File.separator + "phantomjs");
+			//targetPhantomjsdriver = new File(EnvParameters.TEST_ROOT_DIR + File.separator + "drivers" + File.separator
+				//	+ "phantomjs" + File.separator + "linux" + File.separator + "phantomjs");
+		targetPhantomjsdriver= new File ("/usr/local/bin/phantomjs");
 		}
 
 		if (targetPhantomjsdriver.exists()) {
