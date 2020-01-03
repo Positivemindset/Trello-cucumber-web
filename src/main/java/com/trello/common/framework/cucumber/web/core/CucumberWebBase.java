@@ -332,12 +332,12 @@ public class CucumberWebBase {
 				if (!EnvParameters.GRID_ENABLED) {
 					driver = new ChromeDriver(options);
 				} else {
-					if (browPlatform != null) {
+					/*if (browPlatform != null) {
 						capabilities.setCapability(CapabilityType.PLATFORM, browPlatform);
 					}
 					if (StringUtils.isNotEmpty(browVersion)) {
 						capabilities.setCapability(CapabilityType.VERSION, browVersion);
-					}
+					}*/
 					driver = new RemoteWebDriver(new URL(
 							"http://" + EnvParameters.HUB_IP + ":".concat(EnvParameters.HUB_PORT).concat("/wd/hub")),
 							capabilities);
