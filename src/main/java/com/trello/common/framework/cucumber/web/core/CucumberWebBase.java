@@ -309,11 +309,16 @@ public class CucumberWebBase {
 				}
 
 			} else if (browser.equals("chrome")) {
+				System.out.println("1sdfasdfasdfasdf");
 				DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 				HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+				System.out.println("3");
+
 				chromePrefs.put("profile.default_content_settings.popups", 0);
 				chromePrefs.put("download.default_directory",
 						System.getProperty("user.home") + File.separator + "Downloads");
+				System.out.println("4");
+
 				ChromeOptions options = new ChromeOptions();
 				if (EnvParameters.ENABLE_EXTENSION) {
 					String[] extensionList = OSUtils.getFileList("extensions", "crx");
@@ -321,13 +326,18 @@ public class CucumberWebBase {
 						options.addExtensions(new File("extensions" + File.separator + extensionList[i]));
 					}
 				}
+				System.out.println("5");
+
 				HashMap<String, Object> chromeOptionsMap = new HashMap<String, Object>();
 				options.setExperimentalOption("prefs", chromePrefs);
 				options.addArguments("--test-type");
 				options.addArguments("--start-maximized");
+				System.out.println("6");
+
 				capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptionsMap);
 				capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 				capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+				System.out.println("7");
 
 				if (!EnvParameters.GRID_ENABLED) {
 					driver = new ChromeDriver(options);
