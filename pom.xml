@@ -151,7 +151,7 @@
 							<goal>test</goal>
 						</goals>
 						<configuration>
-							<forkCount>2</forkCount>
+							<forkCount>4</forkCount>
 							<reuseForks>false</reuseForks>
 							<includes>
 								<include>**/*IT.java</include>
