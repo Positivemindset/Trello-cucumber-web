@@ -95,9 +95,6 @@ public class EnvParameters {
 			System.out.println("In Environment class 2");
 			properties.load(in);
 			in.close();
-			GRID_ENABLED =true;
-			HUB_IP="3.90.83.82";
-			HUB_PORT="4444";
 			
 			
 		} catch (IOException e) {
@@ -175,44 +172,49 @@ public class EnvParameters {
 			throw new CustomException("Time out property not set, " + "it is mandate to define the Time out property");
 		}
 
-		/*
-		 * // Load GRID_ENABLED from grid.enabled property if
-		 * (System.getProperty("grid.enabled") != null &&
-		 * !(System.getProperty("grid.enabled").equals(""))) { System.out.println
-		 * ("grid enabled 1"); GRID_ENABLED =
-		 * System.getProperty("grid.enabled").equalsIgnoreCase("true") ? true : false; }
-		 * else if (properties.getProperty("grid.enabled") != null &&
-		 * !(properties.getProperty("grid.enabled").equals(""))) { System.out.println
-		 * ("grid enabled 2");
-		 * 
-		 * GRID_ENABLED =
-		 * properties.getProperty("grid.enabled").equalsIgnoreCase("true") ? true :
-		 * false; } else { System.out.println ("grid not enabled ");
-		 * 
-		 * GRID_ENABLED = false; }
-		 */
+		// Load GRID_ENABLED from grid.enabled property
+		if (System.getProperty("grid.enabled") != null && !(System.getProperty("grid.enabled").equals(""))) {
+			System.out.println  ("grid enabled 1");
+			GRID_ENABLED = System.getProperty("grid.enabled").equalsIgnoreCase("true") ? true : false;
+		} else if (properties.getProperty("grid.enabled") != null
+				&& !(properties.getProperty("grid.enabled").equals(""))) {
+			System.out.println  ("grid enabled 2");
 
-		/*
-		 * // Load HUB_IP from hub.ip if (GRID_ENABLED) { if
-		 * (System.getProperty("hub.ip") != null &&
-		 * !(System.getProperty("hub.ip").equals(""))) { HUB_IP =
-		 * System.getProperty("hub.ip"); } else if (properties.getProperty("hub.ip") !=
-		 * null && !(properties.getProperty("hub.ip").equals(""))) { HUB_IP =
-		 * properties.getProperty("hub.ip"); } else { throw new CustomException(
-		 * "hub.ip property not set, " +
-		 * "it is mandate for tests to run on selenium grid"); } } else { HUB_IP = null;
-		 * }
-		 * 
-		 * // Load HUB_PORT from hub.port if (GRID_ENABLED) { if
-		 * (System.getProperty("hub.port") != null &&
-		 * !(System.getProperty("hub.port").equals(""))) { HUB_PORT =
-		 * System.getProperty("hub.port"); } else if (properties.getProperty("hub.port")
-		 * != null && !(properties.getProperty("hub.port").equals(""))) { HUB_PORT =
-		 * properties.getProperty("hub.port"); } else { throw new CustomException(
-		 * "hub.port property not set, " +
-		 * "it is mandate for tests to run on selenium grid"); } } else { HUB_PORT =
-		 * null; }
-		 */
+			GRID_ENABLED = properties.getProperty("grid.enabled").equalsIgnoreCase("true") ? true : false;
+		} else {
+			System.out.println  ("grid not enabled ");
+
+			GRID_ENABLED = false;
+		}
+
+		// Load HUB_IP from hub.ip
+		if (GRID_ENABLED) {
+			if (System.getProperty("hub.ip") != null && !(System.getProperty("hub.ip").equals(""))) {
+				HUB_IP = System.getProperty("hub.ip");
+			} else if (properties.getProperty("hub.ip") != null && !(properties.getProperty("hub.ip").equals(""))) {
+				HUB_IP = properties.getProperty("hub.ip");
+			} else {
+				throw new CustomException(
+						"hub.ip property not set, " + "it is mandate for tests to run on selenium grid");
+			}
+		} else {
+			HUB_IP = null;
+		}
+
+		// Load HUB_PORT from hub.port
+		if (GRID_ENABLED) {
+			if (System.getProperty("hub.port") != null && !(System.getProperty("hub.port").equals(""))) {
+				HUB_PORT = System.getProperty("hub.port");
+			} else if (properties.getProperty("hub.port") != null && !(properties.getProperty("hub.port").equals(""))) {
+				HUB_PORT = properties.getProperty("hub.port");
+			} else {
+				throw new CustomException(
+						"hub.port property not set, " + "it is mandate for tests to run on selenium grid");
+			}
+		} else {
+			HUB_PORT = null;
+		}
+
 		// Load ENV from Env property
 
 		if (System.getProperty("Env") != null && !(System.getProperty("Env").equalsIgnoreCase(""))) {
