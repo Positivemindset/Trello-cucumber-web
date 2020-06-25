@@ -338,6 +338,7 @@ public class CucumberWebBase {
 					if (StringUtils.isNotEmpty(browVersion)) {
 						capabilities.setCapability(CapabilityType.VERSION, browVersion);
 					}*/
+					System.out.println ("who who who who whoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
 					driver = new RemoteWebDriver(new URL(
 							"http://" + EnvParameters.HUB_IP + ":".concat(EnvParameters.HUB_PORT).concat("/wd/hub")),
 							capabilities);
