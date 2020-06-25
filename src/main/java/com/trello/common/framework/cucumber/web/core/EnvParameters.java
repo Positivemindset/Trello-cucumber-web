@@ -172,11 +172,16 @@ public class EnvParameters {
 
 		// Load GRID_ENABLED from grid.enabled property
 		if (System.getProperty("grid.enabled") != null && !(System.getProperty("grid.enabled").equals(""))) {
+			System.out.println  ("grid enabled 1");
 			GRID_ENABLED = System.getProperty("grid.enabled").equalsIgnoreCase("true") ? true : false;
 		} else if (properties.getProperty("grid.enabled") != null
 				&& !(properties.getProperty("grid.enabled").equals(""))) {
+			System.out.println  ("grid enabled 2");
+
 			GRID_ENABLED = properties.getProperty("grid.enabled").equalsIgnoreCase("true") ? true : false;
 		} else {
+			System.out.println  ("grid not enabled ");
+
 			GRID_ENABLED = false;
 		}
 
